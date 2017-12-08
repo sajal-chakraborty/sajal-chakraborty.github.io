@@ -1,2 +1,20 @@
 Currently I am writing here - <a href="http://howtodoinjava.com/author/sajalchakraborty">My current blogs</a>
 
+Alexa Account linking with enterprise systems  https://developer.amazon.com/blogs/alexa/post/0fbd9756-6ea0-43d5-b213-873ede1b0595/tips-for-successfully-adding-account-linking-to-your-alexa-skill
+
+How this works
+1.	Based on Oauth 2.0 specification
+2.	Need to link Alexa with the Bank using a Oauth authentication system.
+3.	Login details will be provided through a mobile friendly mobile page which will be rendered in Alexa app
+4.	Once user successfully authenticated using the login screen, system will provide one authorization code
+5.	Alexa will store this authorization code in Session and will pass that to backend systems whenever the skill is invoked.
+
+Generally this is secured as 
+1.	Amazon only accepts HTTPS communication to the login service.
+2.	It is based on Authorization code – so no direct userid/password store in Amazon system
+3.	We can extend the refresh token capability so that Authorization code expires after certain time and Alexa will refresh that by using refresh token service
+4.	It is a standard in the industry and many other organizations are already using it effectively.
+
+Next steps for CCB
+1.	Need to check if CCB has any such service which is HTTPS and Public and able to generate Authorization code
+2.	If not we need to extend the existing login services of CCB to expose one such HTTPS public service which suits Alexa requirement to link enterprise account.
